@@ -1,23 +1,46 @@
-let mainContainer = document.querySelector("#mainContainer");
+const btnSize = document.querySelector(".btnSize");
+const mainContainer = document.querySelector("#mainContainer");
 let gridContainer = document.createElement("div");
 gridContainer.className = "gridContainer";
 mainContainer.appendChild(gridContainer);
+let clickHandler;
 
-for (let i = 0; i < 256; i++) {
-  let gridDiv = document.createElement("div");
-  gridDiv.className = `gridDiv div${i}`;
-  gridContainer.appendChild(gridDiv);
+let squareNumber = 16;
+function loadPage() {
+  let gridSquareNumber = squareNumber * squareNumber;
+  for (let i = 0; i < gridSquareNumber; i++) {
+    let gridDiv = document.createElement("div");
+    gridDiv.className = `gridDiv`;
+    gridContainer.appendChild(gridDiv);
+    gridDiv.style.width = `calc(100% /${squareNumber})`;
+  }
+  setValues();
+}
+
+function setValues() {
+  if (clickHandler) {
+    btnSize.removeEventListener("click", clickEvent);
+  }
+
+  let clickEvent = (e) => {
+    if (e.target.matches("button")) {
+      gridContainer.remove();
+      squareNumber = window.prompt("set a value from 2 to 100", "");
+      
+      gridContainer = document.createElement("div");
+      gridContainer.className = "gridContainer";
+      mainContainer.appendChild(gridContainer);
+      loadPage(squareNumber);
+    }
+  };
+  btnSize.addEventListener("click", clickEvent);
 }
 
 gridContainer.addEventListener("mouseover", (e) => {
   if (e.target.matches(".gridDiv")) {
     e.target.style.backgroundColor = "red";
-    console.log(e.target, e.currentTarget);
+    // console.log(e.target, e.currentTarget);
   }
 });
 
-// gridContainer.addEventListener("mouseout", (e) => {
-//   let gridDiv = document.querySelector(".gridDiv");
-//   e.target.textContent = " ";
-//   console.log("out");
-// });
+loadPage();
