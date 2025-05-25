@@ -1,8 +1,12 @@
 const btnSize = document.querySelector(".btnSize");
 const mainContainer = document.querySelector("#mainContainer");
+const template = document.querySelector(".template");
+const blackBoard = document.querySelector(".blackBoard");
 let gridContainer = document.createElement("div");
+
 gridContainer.className = "gridContainer";
-mainContainer.appendChild(gridContainer);
+template.appendChild(blackBoard);
+blackBoard.appendChild(gridContainer);
 
 let squareNumber = 16;
 
@@ -16,9 +20,9 @@ function loadPage() {
   }
   setValues();
 }
-function setValues() {
-  let clickEvent;
 
+let clickEvent;
+function setValues() {
   if (clickEvent) {
     btnSize.removeEventListener("click", clickEvent);
   }
