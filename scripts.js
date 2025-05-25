@@ -2,6 +2,8 @@ const btnSize = document.querySelector(".btnSize");
 const mainContainer = document.querySelector("#mainContainer");
 const template = document.querySelector(".template");
 const blackBoard = document.querySelector(".blackBoard");
+const rangeField = document.querySelector(".rangeField");
+
 let gridContainer = document.createElement("div");
 
 gridContainer.className = "gridContainer";
@@ -57,7 +59,7 @@ function setValues() {
 
 gridContainer.addEventListener("mouseover", (e) => {
   if (e.target.matches(".gridDiv")) {
-    e.target.style.backgroundColor = "red";
+    e.target.style.backgroundColor = "black ";
     // console.log(e.target, e.currentTarget);
   }
 });

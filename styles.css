@@ -24,17 +24,20 @@
 .template {
   aspect-ratio: 2/1;
   width: 80vw;
-  background-color: rgba(255, 0, 0, 0.212);
+  background-color: rgba(129, 0, 0, 0.774);
   border-radius: 3%;
-    flex-direction: column;
+  flex-direction:column-reverse;
+      border: 5px groove goldenrod;
 
+  gap: 2vh
 }
 
 .blackBoard {
   background-color: beige;
   aspect-ratio: 2/1;
   width: 50vw;
-  
+    border-radius: 1em;
+
 }
 
 .gridContainer {
@@ -43,15 +46,36 @@
   background: rgb(66, 66, 66);
   display: flex;
   flex-wrap: wrap;
+    border: 8px groove gold;
+
 }
 .gridDiv {
   aspect-ratio: 2/1;
-  border: 1px solid rgba(0, 0, 0, 0.158);
-  background-color: rgb(255, 255, 255);
+  border: 1px solid rgba(255, 255, 255, 0.692);
+  background-color: rgba(255, 255, 255, 0.788);
+  
 }
 
 button {
   background-color: transparent;
   color: white;
   font-size: 20px;
+}
+
+
+.rangeDiv{
+  width: 100%;
+  height: 10%;
+  justify-content: start;
+
+}
+
+.rangeField{
+  margin: 2em;
+}
+
+img{
+  width: 60vw;
+  height: 10vh;
+  order: 1;
 }
