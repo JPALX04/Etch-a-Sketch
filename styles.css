@@ -2,7 +2,7 @@
   margin: 0;
   box-sizing: border-box;
   padding: 0;
-  /* outline: 2px solid hsl(0, 100%, 50%); */
+  /* outline: 2px solid hsl(56, 100%, 50%); */
 }
 
 .container {
@@ -14,7 +14,7 @@
 #mainContainer {
   height: 100vh;
   width: 100vw;
-  background-color: black;
+  background-color: #000000;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -23,21 +23,21 @@
 
 .template {
   aspect-ratio: 2/1;
-  width: 80vw;
-  background-color: rgba(129, 0, 0, 0.774);
+  width: 90vw;
+  background-color: #08003069;
   border-radius: 3%;
-  flex-direction:column-reverse;
-      border: 5px groove goldenrod;
-
-  gap: 2vh
+  flex-direction: column-reverse;
+  gap: 2vh;
+  box-shadow: 0 0 17px #ff1515;
+  border: 1px solid rgb(0, 0, 0);
 }
 
 .blackBoard {
   background-color: beige;
   aspect-ratio: 2/1;
   width: 50vw;
-    border-radius: 1em;
-
+  border-radius: 1em;
+ 
 }
 
 .gridContainer {
@@ -46,14 +46,13 @@
   background: rgb(66, 66, 66);
   display: flex;
   flex-wrap: wrap;
-    border: 8px groove gold;
-
+  box-shadow: 0 0 17px #ff1515;
+  border: 1px solid rgb(0, 0, 0);
 }
 .gridDiv {
   aspect-ratio: 2/1;
   border: 1px solid rgba(255, 255, 255, 0.692);
   background-color: rgba(255, 255, 255, 0.788);
-  
 }
 
 button {
@@ -62,20 +61,24 @@ button {
   font-size: 20px;
 }
 
-
-.rangeDiv{
+.rangeDiv {
   width: 100%;
   height: 10%;
-  justify-content: start;
-
-}
-
-.rangeField{
+  align-items: flex-start;
+  flex-direction: column;
   margin: 2em;
 }
 
-img{
-  width: 60vw;
-  height: 10vh;
+.rangeField {
+  margin: 2em;
+}
+
+img {
+  height: 20vh;
   order: 1;
+}
+
+.rangeTxt {
+  width: 4em;
+  color: red;
 }

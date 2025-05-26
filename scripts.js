@@ -1,8 +1,8 @@
-const btnSize = document.querySelector(".btnSize");
 const mainContainer = document.querySelector("#mainContainer");
 const template = document.querySelector(".template");
 const blackBoard = document.querySelector(".blackBoard");
 const rangeField = document.querySelector(".rangeField");
+const rangeTxt = document.querySelector(".rangeTxt");
 
 let gridContainer = document.createElement("div");
 
@@ -20,41 +20,21 @@ function loadPage() {
     gridContainer.appendChild(gridDiv);
     gridDiv.style.width = `calc(100% /${squareNumber})`;
   }
-  setValues();
+  setRangeValue();
 }
 
-let clickEvent;
-function setValues() {
-  if (clickEvent) {
-    btnSize.removeEventListener("click", clickEvent);
+let inputEvent;
+function setRangeValue() {
+  if (inputEvent) {
+    rangeField.removeEventListener("input", inputEvent);
   }
-
-  clickEvent = (e) => {
-    if (!e.target.matches("button")) return;
-
-    squareNumber = window.prompt("set a value from 2 to 100");
-
-    // check if the users cancel or submit an empty value
-    if (squareNumber === null || squareNumber.trim() === "") {
-      return;
-    }
-    // transform the input to a typeof = number
-    let number = parseFloat(squareNumber);
-
-    if (isNaN(number)) {
-      alert("This is not a number!");
-      console.log(squareNumber);
-      return;
-    }
-    if (number < 2 || number > 100) {
-      alert("set a valid number!");
-      return;
-    }
-
+  inputEvent = (e) => {
+    squareNumber = rangeField.value;
+    rangeTxt.textContent = `${rangeField.value} x ${rangeField.value} `;
     gridContainer.innerHTML = "";
     loadPage();
   };
-  btnSize.addEventListener("click", clickEvent);
+  rangeField.addEventListener("input", inputEvent);
 }
 
 gridContainer.addEventListener("mouseover", (e) => {
