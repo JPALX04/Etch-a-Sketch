@@ -11,6 +11,7 @@ template.appendChild(blackBoard);
 blackBoard.appendChild(gridContainer);
 
 let squareNumber = 16;
+rangeTxt.textContent = `${rangeField.value} x ${rangeField.value} `;
 
 function loadPage() {
   let gridSquareNumber = squareNumber * squareNumber;

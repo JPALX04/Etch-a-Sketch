@@ -1,8 +1,11 @@
+@font-face {
+  font-family: stranger;
+  src: url(/font/Benguiat\ Bold.ttf);
+}
 * {
   margin: 0;
   box-sizing: border-box;
   padding: 0;
-  /* outline: 2px solid hsl(56, 100%, 50%); */
 }
 
 .container {
@@ -23,7 +26,7 @@
 
 .template {
   aspect-ratio: 2/1;
-  width: 90vw;
+  width: 85vw;
   background-color: #08003069;
   border-radius: 3%;
   flex-direction: column-reverse;
@@ -37,7 +40,6 @@
   aspect-ratio: 2/1;
   width: 50vw;
   border-radius: 1em;
- 
 }
 
 .gridContainer {
@@ -54,31 +56,86 @@
   border: 1px solid rgba(255, 255, 255, 0.692);
   background-color: rgba(255, 255, 255, 0.788);
 }
-
-button {
-  background-color: transparent;
-  color: white;
-  font-size: 20px;
-}
-
-.rangeDiv {
-  width: 100%;
-  height: 10%;
-  align-items: flex-start;
-  flex-direction: column;
-  margin: 2em;
-}
-
-.rangeField {
-  margin: 2em;
-}
-
 img {
   height: 20vh;
   order: 1;
 }
-
 .rangeTxt {
-  width: 4em;
+  font-family: stranger;
+  width: 6em;
   color: red;
+  text-align: center;
+}
+.rangeInput {
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.rangeField {
+  filter: drop-shadow(0 0 0.2rem #ffffff);
+}
+
+.buttons {
+  width: 100%;
+  height: 10%;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  margin: 1.5em 0;
+}
+
+.buttons > button {
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  border: 1px solid white;
+  box-shadow: 0 0 10px #fffcfc;
+  transition: 0.3s;
+}
+
+button:hover {
+  cursor: pointer;
+  height: 3.1em;
+  width: 3.1em;
+}
+.rubber {
+  background-color: white;
+}
+.colors {
+  background-color: #000;
+}
+
+.rainbow {
+  position: relative;
+  background-color: purple;
+  border-radius: 50%;
+  background: conic-gradient(#3dffc9, #f7c723, #eb0ea5, #3dffc9);
+  animation: spin 1.4s linear infinite;
+  box-shadow: 0px 0px 150px -75px black;
+  border: 1px solid white;
+}
+
+.rainbow::before {
+  content: "";
+  background-color: #080030;
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: inset 0px 0px 110px -70px black;
+  border: 1px solid white;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+img {
+  filter: drop-shadow(0.1rem 0 0.9rem #ff1515)
+    drop-shadow(0.1rem 0 0.9em #ff1515);
 }
