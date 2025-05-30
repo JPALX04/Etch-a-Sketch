@@ -11,7 +11,7 @@ gridContainer.className = "gridContainer";
 template.appendChild(blackBoard);
 blackBoard.appendChild(gridContainer);
 
-let squareNumber = 16;
+let squareNumber = rangeField.value;
 rangeTxt.textContent = `${rangeField.value} x ${rangeField.value} `;
 
 function loadPage() {
@@ -48,14 +48,40 @@ function getRandomColor() {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
-gridContainer.addEventListener("mouseover", (e) => {
+let mouseUp = 0;
+
+document.body.onmouseup = function () {
+  ++mouseUp;
+};
+document.body.onmousedown = function () {
+  --mouseUp;
+};
+let mouseOver;
+let mouseDown = (e) => {
+  if (!e.target.matches(".gridDiv")) return;
   if (e.target.matches(".gridDiv")) {
     if (gridColor === "rainbow") {
       e.target.style.backgroundColor = getRandomColor();
     }
+  }
+
+  gridContainer.addEventListener("mouseover", mouseOver);
+};
+
+mouseOver = (e) => {
+  if (!mouseUp) {
+    console.log("button up");
+    gridContainer.removeEventListener("mouseover", mouseOver);
+  }
+  if (e.target.matches(".gridDiv")) {
+    if (gridColor === "rainbow") {
+      e.target.style.backgroundColor = getRandomColor();
+      return;
+    }
     e.target.style.backgroundColor = gridColor;
   }
-});
+};
+gridContainer.addEventListener("mousedown", mouseDown);
 
 btnClick = (e) => {
   if (e.target.matches(".colors")) {
