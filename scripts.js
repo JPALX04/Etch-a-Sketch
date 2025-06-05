@@ -14,6 +14,8 @@ blackBoard.appendChild(gridContainer);
 let squareNumber = rangeField.value;
 rangeTxt.textContent = `${rangeField.value} x ${rangeField.value} `;
 
+
+// function to create the div grid
 function loadPage() {
   let gridSquareNumber = squareNumber * squareNumber;
   for (let i = 0; i < gridSquareNumber; i++) {
@@ -25,6 +27,8 @@ function loadPage() {
   setRangeValue();
 }
 
+
+// function to range the size of the grid
 let inputEvent;
 function setRangeValue() {
   if (inputEvent) {
@@ -40,7 +44,7 @@ function setRangeValue() {
 }
 
 let gridColor;
-
+// function to set a random rgb value
 function getRandomColor() {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
